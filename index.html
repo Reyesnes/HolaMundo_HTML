@@ -1,28 +1,39 @@
 <!doctype html>
 <html>
-<head>
-    <title>Mi primera web</title> <!-- Nombre que aparecerá en la pestaña -->
-</head>
-<body>
-<h1>Mi primer heading</h1>
-<h2>Mi segundo heading</h2>
-<h3>Mi tercer heading</h3>
-<h4>Mi cuarto heading</h4>
-<h5>Mi quinto heading</h5>
-<h6>Chanchito feliz</h6>
-<p>Chanchito feliz est&aacute; muy feliz.</p>
-<p>Chanchito triste est&aacute; muy triste</p>
-<hr> <!-- hr funciona para agregar una linea de separación del texto -->
-<h2>Chanchito Felipe</h2>
-<p> <!-- texto de varias lineas en un solo bloque (parrafo) -->
-    Este texto es <span style="color:blue">mucho m&aacute;s largo</span>
-    <!--para aplicar estilos o manipular porciones específicas de texto -->
-    y es para mostrar <br><br> <!-- para agregar un salto de linea, en ese caso, son 2 saltos de lineas -->
-    la etiqueta de span!
-</p>
-<!-- Hiper Vinculo-->
-<a target="blank" href="https://www.youtube.com"> Ir a Youtube </a>
-<!-- Mostrar imagenes al usuario-->
-<img src="img/coffee.png" height="200" width="250" />
-</body>
+    <head>
+        <title>Mi primera web</title> <!-- Nombre que aparecerá en la pestaña -->
+    </head>
+    <body>
+    <!-- Formularios -->
+        <form>
+            <label for="nombre">Nombre</label> <!-- Identificador ="nombre" -->
+            <input type="text" id="nombre" name="nombre" placeholder="Ejemplo: Nestor Reyes" /> <!-- Identificador al campo al cuál queremos que haga referencia ="nombre" este label -->
+            <br>
+            <label for="apellido">Apellido</label> <!-- Identificador ="nombre" -->
+            <input type="text" id="apellido" name="apellido" placeholder="Chanchito triste..." />
+        </form>
+        <h1>Mi primer heading</h1>
+        <h2>Mi segundo heading</h2>
+        <h3>Mi tercer heading</h3>
+        <h4>Mi cuarto heading</h4>
+        <h5>Mi quinto heading</h5>
+        <h6>Chanchito feliz</h6>
+        <p>Chanchito feliz est&aacute; muy feliz.</p>
+        <p>Chanchito triste est&aacute; muy triste</p>
+        <hr> <!-- hr funciona para agregar una linea de separación del texto -->
+        <h2>Chanchito Felipe</h2>
+        <p> <!-- texto de varias lineas en un solo bloque (parrafo) -->
+            Este texto es <span style="color:#0000f8">mucho m&aacute;s largo</span>
+            <!--para aplicar estilos o manipular porciones específicas de texto -->
+            y es para mostrar <br><br> <!-- para agregar un salto de linea, en ese caso, son 2 saltos de lineas -->
+            la etiqueta de span!
+        </p>
+        <!-- Hiper Vinculo
+            - Para que nos abra el link en una nueva pestaña: agregamos
+            una nueva propiedad llamada `target`
+        -->
+        <a target="blank" href="https://www.youtube.com"> Ir a Youtube </a>
+        <!-- Mostrar imagenes al usuario-->
+        <img src="img/coffee.png" alt="Imagen de prueba" height="200" width="250"/>
+    </body>
 </html>
