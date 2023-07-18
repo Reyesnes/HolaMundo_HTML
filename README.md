@@ -193,31 +193,153 @@ elementos de entrada, como campos de texto, botones, casillas de verificación, 
 - `<form>`: Es la etiqueta principal que indica el inicio y el final del formulario. Los elementos del formulario deben
   estar contenidos dentro de esta etiqueta.
 
-**Campos de entrada**: Estos elementos permiten a los usuarios ingresar datos, como texto, números, fechas, correos
+Un formulario suele constar de los siguientes elementos principales:
+
+#### 1. Campos de entrada:
+
+Estos elementos permiten a los usuarios ingresar datos, como texto, números, fechas, correos
 electrónicos, etc. Algunos ejemplos de campos de entrada son `<input>`, `<textarea>`, y `<select>` (para menús
 desplegables).
 
-**Etiquetas:** Se utilizan para describir los campos de entrada y proporcionar información sobre qué tipo de datos se
-debe
-ingresar.
+- `<input>`: El campo de entrada de `<input>` puede tener diferentes tipos de acuerdo con el atributo "type" que se le
+  asigne. Algunos de los tipos más comunes son:
 
-**Botones:** Los botones, como `<input type="submit">` y `<input type="reset">`, se utilizan para enviar los datos
-ingresados o
-restablecer el formulario, respectivamente.
+| Tipos    | Descripción                                                                                                                                 |
+|----------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| text     | Crea un campo de entrada de texto de una sola línea donde los usuarios pueden ingresar texto, números o cualquier otro dato de texto.       |
+| password | Similar al tipo "text", pero oculta los caracteres ingresados, mostrando asteriscos o puntos, para proteger la privacidad de la contraseña. |
+| email    | Crea un campo de entrada para recopilar direcciones de correo electrónico válidas.                                                          |
+| number   | Crea un campo de entrada para ingresar números, ya sean enteros o decimales.                                                                |
+| date     | Crea un campo de entrada para obtener fechas específicas en formato "AAAA-MM-DD".                                                           |
+| checkbox | Crea una casilla de verificación que permite a los usuarios seleccionar una o varias opciones                                               |
+| radio    | Crea botones de opción para permitir a los usuarios seleccionar una opción entre varias.                                                    |
+| submit   | Crea un botón de envío que permite a los usuarios enviar el formulario.                                                                     |
+| reset    | Crea un botón para restablecer el formulario a sus valores predeterminados.                                                                 |
+| file     | Crea un campo de entrada para seleccionar archivos del dispositivo del usuario.                                                             |
 
-- `<label>`: Esta etiqueta se utiliza para asociar una etiqueta descriptiva con un campo de entrada, lo que mejora la
-  usabilidad y accesibilidad del formulario.
+- `<textarea>`: Crea un campo de texto de varias líneas donde los usuarios pueden escribir comentarios o información más
+  extensa que en un campo de texto de una sola línea.
 
-  Cuando un usuario completa y envía un formulario, los datos ingresados se pueden procesar en el servidor web o
-  mediante
-  código del lado del cliente (como JavaScript). Esto permite que los sitios web interactúen con los usuarios, recopilen
-  información y realicen acciones específicas en función de los datos enviados.
+  Ejemplo:
+
+      <label for="comentarios">Comentarios:</label>
+      <textarea id="comentarios" name="comentarios" rows="4" cols="40"></textarea>
+
+  Además, este campo de entrada, puede contener elementos o propiedades de dimensión como:
+
+    - _cols_: para indicar la cantidad de columnas o _ancho_ del cuadro de texto
+    - _rows_: para indicar la cantidad de filas o _alto_ del cuadro de texto
+
+    Ejemplo:
+        
+      <form action="/procesar_datos" method="post">
+        <label for="comentarios">Comentarios:</label>
+        <br>
+        <textarea id="comentarios" name="comentarios" cols="40" rows="6" required></textarea>
+        <br>
+        <input type="submit" value="Enviar">
+      </form>
+
+
+- `<select>`: Crea un menú desplegable que permite a los usuarios seleccionar una opción de una lista.
+
+  Ejemplo:
+
+      <label for="ciudad">Ciudad:</label>
+      <select id="ciudad" name="ciudad">
+        <option value="madrid">Madrid</option>
+        <option value="barcelona">Barcelona</option>
+        <option value="valencia">Valencia</option>
+      </select>
+
+    - `<button>`: Crea botones personalizados que pueden realizar acciones específicas dentro del formulario.
+
+      Ejemplo:
+
+          <button type="button" onclick="saludar()">Saludar</button>
+
+    - `<fieldset>` y `<legend>`: Estos elementos se utilizan juntos para agrupar elementos de entrada relacionados
+      visualmente y proporcionar una leyenda o título descriptivo para el grupo.
+
+      Ejemplo:
+
+          <fieldset>
+            <legend>Datos Personales</legend>
+            <!-- Aquí se agregarían los campos de entrada relacionados -->
+            </fieldset>
+
+    - `<datalist>`: Se utiliza junto con el elemento `<input type="text">` para proporcionar una lista de opciones
+      sugeridas al usuario mientras escribe en el campo
+
+      Ejemplo:
+
+          <label for="busqueda">Buscar:</label>
+          <input type="text" id="busqueda" name="busqueda" list="opciones">
+          <datalist id="opciones">
+            <option value="Opción 1">
+            <option value="Opción 2">
+            <option value="Opción 3">
+          </datalist>
+
+#### 2. Etiquetas:
+
+Se utilizan para describir los campos de entrada y proporcionar información sobre qué tipo de datos se
+debe ingresar.
+
+- `<label>`: Se utiliza para asociar una etiqueta descriptiva con un campo de entrada. Ayuda a los usuarios a comprender
+  qué se espera que ingresen en el campo y mejora la experiencia de usuario al permitir que hagan clic en la etiqueta
+  para enfocar el campo de entrada correspondiente.
+
+  Ejemplo:
+
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+- `<legend>`: Se utiliza dentro de la etiqueta `<fieldset>` para proporcionar una leyenda o título descriptivo para un
+  grupo de campos de entrada relacionados. Ayuda a organizar y agrupar campos de manera visualmente coherente.
+
+  Ejemplo:
+
+      <fieldset>
+        <legend>Datos Personales</legend>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <!-- Otros campos de entrada relacionados aquí -->
+      </fieldset>
+
+  Texto dentro del formulario: Además de las etiquetas <label> y <legend>, también puedes utilizar texto normal dentro
+  del formulario para proporcionar instrucciones, indicaciones o descripciones sobre los campos de entrada.
+
+  Ejemplo:
+
+      <form>
+        <p>Por favor, ingrese su nombre y correo electrónico:</p>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+        <br>
+        <input type="submit" value="Enviar">
+      </form>
+
+
+#### 3.Botones:
+
+Los botones, como `<input type="submit">` y `<input type="reset">`, se utilizan para enviar los datos
+ingresados o restablecer el formulario, respectivamente.
+
+Cuando un usuario completa y envía un formulario, los datos ingresados se pueden procesar en el servidor web o
+mediante código del lado del cliente (como JavaScript). Esto permite que los sitios web interactúen con los usuarios,
+recopilen
+información y realicen acciones específicas en función de los datos enviados.
 
 Los formularios son una parte esencial de la experiencia del usuario en la web, ya que facilitan la comunicación
 bidireccional entre el usuario y el sitio web, lo que permite una amplia gama de interacciones en línea, desde iniciar
 sesión en una cuenta hasta enviar comentarios o realizar compras en línea.
 
-Otras propiedades que puede contener la etiqueta `<input>` dentro de `<form>`, son:
+Otras propiedades que pueden contener los elementos del formulario son:
 
 - `name`: el cuál se utiliza para identificar el campo de entrada cuando el formulario se envía al servidor o se procesa
   mediante código del lado del cliente (como JavaScript). Cada campo de entrada debe tener un nombre único dentro del
@@ -240,7 +362,7 @@ Otras propiedades que puede contener la etiqueta `<input>` dentro de `<form>`, s
   individualmente._
 
 
-- `placeholder`:  se utiliza para proporcionar una pista o ejemplo breve sobre el tipo de datos que se debe ingresar en
+- `placeholder`: se utiliza para proporcionar una pista o ejemplo breve sobre el tipo de datos que se debe ingresar en
   el campo. Esta propiedad muestra un texto en gris claro dentro del campo antes de que el usuario ingrese cualquier
   información. Sirve como una guía para el usuario sobre qué se espera que ingrese en el campo. Así:
 
@@ -260,28 +382,28 @@ Otras propiedades que puede contener la etiqueta `<input>` dentro de `<form>`, s
     - `text`: Este es el valor predeterminado. Se utiliza para campos de entrada de texto donde los usuarios pueden
       ingresar cualquier tipo de texto, como nombres, comentarios o descripciones.
 
-      Ejemplo:
+      _Ejemplo_:
 
           <label for="nombre">Nombre:</label>
           <input type="text" id="nombre" name="nombre" required>
 
     - `email`: Este tipo de campo de entrada se utiliza para recopilar direcciones de correo electrónico válidas.
 
-      Ejemplo:
+      _Ejemplo_:
 
           <label for="correo">Correo electrónico:</label>
           <input type="email" id="correo" name="correo" required>
 
     - `number`: Se utiliza para campos que aceptan solo números, ya sean enteros o decimales.
 
-      Ejemplo:
+      _Ejemplo_:
 
           <label for="edad">Edad:</label>
           <input type="number" id="edad" name="edad" min="18" max="100" required>
 
     - `date`: Sirve para obtener fechas específicas en formato "AAAA-MM-DD".
 
-      Ejemplo:
+      _Ejemplo_:
 
           <label for="fecha_nacimiento">Fecha de nacimiento:</label>
           <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
@@ -289,7 +411,7 @@ Otras propiedades que puede contener la etiqueta `<input>` dentro de `<form>`, s
     - `password`: Se usa para campos de contraseñas, donde el texto ingresado se oculta por puntos o asteriscos para
       proteger la privacidad del usuario.
 
-      Ejemplo:
+      _Ejemplo_:
 
           <label for="contrasena">Contraseña:</label>
           <input type="password" id="contrasena" name="contrasena" required>
@@ -297,13 +419,14 @@ Otras propiedades que puede contener la etiqueta `<input>` dentro de `<form>`, s
     - `checkbox`: Se utiliza para crear casillas de verificación que permiten a los usuarios seleccionar una o varias
       opciones.
 
-  Ejemplo:
+      _Ejemplo_:
 
-      <label for="acepto_terminos">Acepto los términos y condiciones</label>
-      <input type="checkbox" id="acepto_terminos" name="acepto_terminos" required>
+          <label for="acepto_terminos">Acepto los términos y condiciones</label>
+          <input type="checkbox" id="acepto_terminos" name="acepto_terminos" required>
 
 Estos son solo algunos ejemplos de los valores más comunes para la propiedad "type". Hay más tipos disponibles en HTML,
-y cada uno tiene un propósito específico para recopilar diferentes tipos de datos del usuario. Estos otros pueden ser:
+y cada uno tiene un propósito específico para recopilar diferqentes tipos de datos del usuario. Estos otros pueden ser:
 **"file", "radio", "input","submit"**, etc. La elección del valor correcto para la propiedad "type" es esencial para
 garantizar que los datos ingresados se ajusten adecuadamente al propósito del campo de entrada y que se validen
 correctamente antes de enviarlos. Más referencias sobre el tema: https://developer.mozilla.org/es/docs/Learn/Forms
+
