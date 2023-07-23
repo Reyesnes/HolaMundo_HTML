@@ -430,3 +430,341 @@ y cada uno tiene un propósito específico para recopilar diferqentes tipos de d
 garantizar que los datos ingresados se ajusten adecuadamente al propósito del campo de entrada y que se validen
 correctamente antes de enviarlos. Más referencias sobre el tema: https://developer.mozilla.org/es/docs/Learn/Forms
 
+#### 4.Botones tipo `<button>`:
+
+La etiqueta `<button>` en HTML se utiliza para crear botones interactivos dentro de un formulario o en cualquier otra
+parte de una página web. Los botones creados con la etiqueta `<button>` pueden tener contenido de texto o incluso
+elementos HTML, lo que brinda mayor flexibilidad en su diseño y funcionalidad.
+
+Aquí tienes una descripción de la etiqueta `<button>` y cómo se puede utilizar:
+
+Sintaxis básica:
+
+        <button>Contenido del botón</button>
+
+Características principales:
+
+Contenido del botón: Puedes agregar cualquier tipo de contenido dentro de la etiqueta `<button>`, ya sea texto,
+imágenes,
+íconos o incluso otros elementos HTML.
+
+Ejemplo con texto:
+
+        <button>Enviar</button>
+
+Ejemplo con ícono:
+
+        <button><i class="fa fa-search"></i> Buscar</button>
+
+**Tipo de botón**: El atributo type se puede utilizar para especificar el tipo de botón. Los valores más comunes son
+type="
+submit" para enviar un formulario o type="button" para un botón genérico que puede ejecutar una función o acción en
+JavaScript.
+
+Ejemplo de botón de envío:
+
+        <button type="submit">Enviar</button>
+
+Ejemplo de botón genérico:
+
+        <button type="button" onclick="saludar()">Saludar</button>
+
+Ejemplo con una clase CSS:
+
+        <button type="button" class="boton-estilizado">Presiona aquí</button>
+
+        <style>
+          .boton-estilizado {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+          }
+        </style>
+
+La **principal diferencia** entre la etiqueta `<input>` y la etiqueta `<button>` radica en su propósito y funcionalidad
+en HTML:
+
+- `<input>`: La etiqueta `<input>` se utiliza principalmente para crear campos de entrada dentro de un formulario. Puede
+  tener diferentes tipos, como **type="text"** para campos de texto, **type="checkbox"** para casillas de verificación,
+  **type="radio"** para botones de opción, **type="submit"** para botones de envío de formularios, entre otros. Su uso
+  principal es permitir a los usuarios ingresar datos o realizar selecciones.
+
+- `<button>`: La etiqueta `<button>` se utiliza para crear botones interactivos en una página web. Pueden tener
+  cualquier contenido, como texto, imágenes, íconos o incluso otros elementos HTML. A diferencia de `<input>`, que se
+  utiliza principalmente en formularios, `<button>` es más versátil y se puede colocar en cualquier lugar de la página
+  para realizar acciones o ejecutar funciones mediante JavaScript.
+
+## LISTAS
+
+En HTML, existen tres etiquetas principales para crear listas: `<ul>`, `<ol>` y `<li>`. Estas etiquetas permiten
+organizar y presentar información de manera estructurada y jerárquica. Aquí tienes una descripción de cada una:
+
+- **`<ul>` (Lista desordenada)**:
+  La etiqueta `<ul>` se utiliza para crear listas desordenadas, es decir, listas donde los elementos no siguen un orden
+  específico. Los elementos de la lista se presentan con viñetas o puntos como marcadores por defecto.
+
+Ejemplo:
+
+        <ul>
+          <li>Manzanas</li>
+          <li>Naranjas</li>
+          <li>Plátanos</li>
+        </ul>
+
+**Resultado:**
+
+    - Manzanas
+    - Naranjas
+    - Plátanos
+
+- **`<ol>` (Lista ordenada)**:
+  La etiqueta `<ol>` se utiliza para crear listas ordenadas, es decir, listas donde los elementos siguen un orden
+  numérico o alfabético. Los elementos de la lista se presentan con números o letras como marcadores.
+
+Ejemplo:
+
+    <ol>
+      <li>Primer elemento</li>
+      <li>Segundo elemento</li>
+      <li>Tercer elemento</li>
+    </ol>
+
+**Resultado:**
+
+    1. Primer elemento
+    2. Segundo elemento
+    3. Tercer elemento
+
+También dentro de una lista ordenada también podemos indicar el valor por el cuál queremos que empiece nuestra lista.
+Esto lo hacemos agregando una propiedad de **value** en la etiqueta, así: `<li value="50">Elemento 1</li>`
+
+Ejemplo:
+
+    <ol>
+        <li value="50">Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+    </ol>
+
+**Resultado:**
+
+    50. Primer elemento
+    51. Segundo elemento
+    52. Tercer elemento
+
+También se pueden anidar listas dandole un formato de niveles
+
+Ejemplo:
+
+    <ol>
+        <li value="50">Elemento 1</li> <!-- value="50" para indicar primer núemero de listsa -->
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+
+        <!-- ## Anidar listas en diferentes niveles ##-->
+
+        <li>
+            <ol>
+                <li>Sub elemento 1</li>
+                <li>Sub elemento 2</li>
+                <li>Sub elemento 3</li>
+            </ol>
+        </li>
+    </ol>
+
+**Resultado:**
+
+    50. Primer elemento
+    51. Segundo elemento
+    52. Tercer elemento
+    54.   1. Sub elemento 1
+          2. Sub elemento 2
+          3. Sub elemento 3
+
+Pero esto no se ve muy bien, entonces, también podemos definir un estilo de lista, de la siguiente manera:
+
+    <ol>
+        <li value="50">Elemento 1</li> <!-- value="50" para indicar primer núemero de listsa -->
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+        
+        <!-- ## Anidar listas en diferentes niveles ##-->
+        <li>
+            <ol>
+                <!-- ## Con el elemento style, podemos definir otro formato de lista ## -->
+                <li style="list-style-type: lower-alpha">Sub elemento 1</li>
+                <li style="list-style-type: lower-alpha">Sub elemento 2</li>
+                <li style="list-style-type: lower-alpha">Sub elemento 3</li>
+            </ol>
+        </li>
+    </ol>
+
+De esta manera, con el estilo **_style="list-style-type: lower-alpha"_**  logramos otro resultado:
+
+    50. Primer elemento
+    51. Segundo elemento
+    52. Tercer elemento
+    54.   a. Sub elemento 1
+          b. Sub elemento 2
+          c. Sub elemento 3
+
+- **`<li>` (Elemento de lista)**:
+  La etiqueta `<li>` se utiliza para definir cada elemento dentro de una lista (ya sea desordenada o ordenada). Cada
+  elemento de la lista debe estar contenido dentro de una etiqueta `<li>`.
+
+Es importante destacar que las etiquetas `<ul>`, `<ol>` y `<li>` son etiquetas de bloque, lo que significa que crean
+bloques de contenido que inician en una nueva línea y se extienden horizontalmente hasta el ancho de su contenedor.
+
+Adicionalmente, también existe la etiqueta `<dl>` para crear listas de definición, donde cada término se define junto
+con su descripción utilizando las etiquetas `<dt>` y `<dd>`, respectivamente.
+
+Ejemplo de lista de definición:
+
+    <dl>
+      <dt>HTML</dt>
+      <dd>Lenguaje de marcado utilizado para crear páginas web.</dd>
+    
+      <dt>CSS</dt>
+      <dd>Lenguaje de hojas de estilo utilizado para dar estilo a páginas web.</dd>
+    </dl>
+
+## TABLAS
+
+Las tablas en HTML se utilizan para organizar y mostrar datos en una estructura tabular compuesta por filas y columnas.
+Las tablas son una herramienta poderosa para presentar información de manera organizada y fácil de leer. Para crear una
+tabla en HTML, se utilizan tres etiquetas principales: `<table>`, `<tr>` y `<td>`. Aquí tienes una descripción de cada
+una:
+
+- `<table>`: La etiqueta `<table>` se utiliza para crear la tabla en sí misma. Todas las filas y columnas de la tabla
+  deben estar contenidas dentro de esta etiqueta.
+
+Ejemplo:
+
+    <table>
+      <!-- Filas y columnas irán aquí -->
+    </table>
+
+- `<tr>`: La etiqueta `<tr>` se utiliza para definir una fila dentro de la tabla. Todas las celdas de una fila deben
+  estar contenidas dentro de esta etiqueta.
+
+Ejemplo:
+
+    <table>
+      <tr>
+        <!-- Celdas de la primera fila -->
+      </tr>
+      <tr>
+        <!-- Celdas de la segunda fila -->
+      </tr>
+    </table>
+
+- `<td>`: La etiqueta `<td>` se utiliza para crear una celda de datos dentro de una fila. Cada celda contiene el
+  contenido o dato que deseas mostrar en la tabla.
+
+Ejemplo:
+
+    <table>
+      <tr>
+        <td>Manzanas</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Naranjas</td>
+        <td>15</td>
+      </tr>
+    </table>
+
+Además de `<td>`, también existe la etiqueta `<th>` que se utiliza para crear celdas de encabezado dentro de la tabla.
+Las celdas de encabezado son útiles para indicar qué información se muestra en cada columna o fila.
+
+Ejemplo con `<th>`:
+
+    <table>
+      <tr>
+        <th>Fruta</th>
+        <th>Cantidad</th>
+      </tr>
+      <tr>
+        <td>Manzanas</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Naranjas</td>
+        <td>15</td>
+      </tr>
+    </table>
+
+También existen las etiquetas `<thead>`, `<tbody>` y `<tfoot>` que son elementos HTML que se utilizan en conjunto con la
+etiqueta `<table>` para dividir y organizar visualmente el contenido de una tabla. Estas etiquetas ayudan a mejorar la
+estructura y legibilidad de las tablas, especialmente cuando estas contienen una gran cantidad de datos.
+
+Ejemplo **thead**:
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>País</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filas de datos irán aquí -->
+      </tbody>
+    </table>
+
+Ejemplo **tbody**:
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>País</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Juan</td>
+          <td>30</td>
+          <td>España</td>
+        </tr>
+        <tr>
+          <td>María</td>
+          <td>25</td>
+          <td>México</td>
+        </tr>
+      </tbody>
+    </table>
+
+Ejemplo **tfoot**:
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Juan</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <td>María</td>
+          <td>25</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">Total de personas: 2</td>
+        </tr>
+      </tfoot>
+    </table>
