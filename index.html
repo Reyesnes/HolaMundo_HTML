@@ -2,8 +2,99 @@
 <html>
 <head>
     <title>Mi primera web</title> <!-- Nombre que aparecerá en la pestaña -->
+    <!-- desde aquí podemos definir de manerea predeterminada el eslilo para las tablas -->
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
+
+<!-- TABLAS -->
+    <!-- tr significa: table row -->
+    <!-- se agrega estilo de ancho de columna -->
+    <table style="width: 300px;">
+        <tr>
+            <!-- con th indicamos una cabecera -->
+            <th>Producto</th>
+            <th>Precio</th>
+        </tr>
+        <tr>
+            <!-- td para definir elementos estandares que se encuentran dentro de las celdas de nuestra tabla -->
+            <td>Hola beats</td>
+            <td>Gratis</td>
+        </tr>
+        <!-- Para agregar una nueva fila, lo hacemos nuevamente con una etiqueta tr-->
+        <tr>
+            <td>Chanchito Feliz</td>
+            <td>$ 19,90</td>
+        </tr>
+        <!-- Nueva fila-->
+        <tr>
+            <td>Chanchito muy Feliz</td>
+            <td>$ 29,90</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <!-- Crear una Tabla separada de manera logica-->
+    <table style="width: 300px;">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hola beats</td>
+                <td>Gratis</td>
+            </tr>
+            <tr>
+                <td>Chanchito Feliz</td>
+                <td>$ 19,90</td>
+            </tr>
+            <tr>
+                <td>Chanchito muy Feliz</td>
+                <td>$ 29,90</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td></td>
+            <td>Total: $49.80</td>
+        </tfoot>
+    </table>
+
+
+<!-- LISTAS -->
+
+    <!-- "ul": Lista no ordenada -->
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+    </ul>
+    <!-- "ol": Lista ordenada -->
+    <ol>
+        <li value="50">Elemento 1</li> <!-- value="50" para indicar primer núemero de listsa -->
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+        <!-- Anidar listas en diferentes niveles-->
+        <li>
+            <ol>
+                <!-- Con el elemento style, podemos definir otro formato de lista-->
+                <li style="list-style-type: lower-roman">Sub elemento 1</li>
+                <li style="list-style-type: lower-roman">Sub elemento 2</li>
+                <li style="list-style-type: lower-roman">Sub elemento 3</li>
+            </ol>
+        </li>
+    </ol>
+
+
 <!-- Formularios -->
 <form action="/formulario" method="POST">
     <label for="nombre">Nombre</label> <!-- Identificador ="nombre" -->
@@ -14,10 +105,29 @@
     <input value="feliz" type="text" id="apellido" name="apellido" placeholder="Reyes"/>
     <br>
     <label for="comentario">Comentario</label>
-    <textarea value="este es un valor por defecto" cols="50" rows="10" id="comentario" placeholder="ingrese comentario"
+    <textarea cols="50" rows="10" id="comentario" placeholder="ingrese comentario"
               name="comentario">Este es un valor por defecto</textarea>
     <br>
-    <input type="submit"/>
+
+    <!-- Botones -->
+    <button type="button">Tipo bot&oacute;n </button>
+    <button type="reset">Tipo reset </button>
+    <button type="submit">Tipo submit </button>
+
+    <!-- Ejemplo boton con una clase CSS -->
+    <button type="button" class="boton-estilizado">Presiona aquí</button>
+
+    <style>
+        .boton-estilizado {
+            background-color: #0AAF59;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+
 </form>
 <h1>Mi primer heading</h1>
 <h2>Mi segundo heading</h2>
